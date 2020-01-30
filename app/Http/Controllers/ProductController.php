@@ -73,7 +73,7 @@ class ProductController extends Controller
 
     public function excel(){
         return Excel::download(new ProductsExport, 'products-list.xlsx');
-        //return 'Exports Width Excel!';
+        //return 'Exports Width PDF!';
     }
 
 
