@@ -3,10 +3,20 @@
 @section('content')
     <div class="col-10 offset-1 table-responsive-sm">
         <div class="d-flex justify-content-between mb-3">
-            <h5>Product List</h5>
-            <a href="{{ route('products.create') }}" class="btn btn-outline-primary btn-sm">
-                <i class="fas fa-plus"></i> Add Product
-            </a>
+            <div>
+                <h5>Product List</h5>
+            </div>
+            <div>
+                <a href="{{ route('products.pdf') }}" class="btn btn-outline-danger btn-sm">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </a>
+                <a href="{{ route('products.excel') }}" class="btn btn-outline-success btn-sm">
+                    <i class="fas fa-file-excel"></i> EXCEL
+                </a>
+                <a href="{{ route('products.create') }}" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-plus"></i> Add Product
+                </a>
+            </div> 
         </div>
 
         @if (session('message'))

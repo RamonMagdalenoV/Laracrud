@@ -16,5 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('products','ProductController');
+Route::get('products/export/pdf', 'ProductController@pdf')->name('products.pdf');
+Route::get('products/export/excel', 'ProductController@excel')->name('products.excel');
 
 

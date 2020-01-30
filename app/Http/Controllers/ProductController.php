@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade as PDF;
+
+use App\Exports\ProductsExport;
+
 
 class ProductController extends Controller
 {
@@ -57,6 +62,18 @@ class ProductController extends Controller
 
         return back()->with('message','Deleted Product');
        // return view('products.edit',['product' => $product]);
+    }
+
+    public function pdf(){
+        $products = Product::get();
+        $pdf = PDF::loadView('products.pdf',['products' => $products]);
+        return $pdf->download('products-list.pdf');
+        //return 'Exports Width PDF!';
+    }
+
+    public function excel(){
+        return Excel::download(new ProductsExport, 'products-list.xlsx');
+        //return 'Exports Width Excel!';
     }
 
 
